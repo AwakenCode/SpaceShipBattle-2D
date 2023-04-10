@@ -1,15 +1,31 @@
-﻿namespace Infrastructure.State
+﻿using Service;
+using Service.Factory;
+
+namespace Infrastructure.State
 {
     public class BattleState : IState
     {
+        private readonly Curtain _curtain;
+        private readonly UIFactory _uiFactory;
+        private readonly ShipSpawner _shipSpawner;
+
+        public BattleState(Curtain curtain, UIFactory uiFactory, ShipSpawner shipSpawner)
+        {
+            _curtain = curtain;
+            _uiFactory = uiFactory;
+            _shipSpawner = shipSpawner;
+        }
+        
         public void Enter()
         {
-            throw new System.NotImplementedException();
+            PrepareUI();
+            _shipSpawner.SpawnShips();
+            _curtain.Hide();
         }
-
-        public void Exit()
+        
+        private void PrepareUI()
         {
-            throw new System.NotImplementedException();
+            _uiFactory.CreateBattleWindow();
         }
     }
 }

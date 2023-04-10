@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: aeca4c59d24193a4aa4901e7594c18a2
+  m_SerializeEntries:
+  - m_GUID: c165fd4ee7c0e8c4a98d8fad19d3abb5
+    m_Address: Plasma_red
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 9afad09c63c9ad041ac2f48c1b0b3ca3
+    m_Address: Plasma_blue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 57063acbd94178342a3c15db4ff867e1
+    m_Address: CS Guardian
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4c9c758efaa0c0d42853684a69eaa3f8
+    m_Address: PlasmaGun
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0586d8fe957ee6a4bae7126401a78924
+    m_Address: Curtain
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: Battle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 78ef96621ebf97c4fa5d71ec4833c9e8
+    m_Address: ShipSetupWindow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: cda5f3eabce4bd744862b09e8f073c70
+    m_Address: ShipSetup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ce62a46cfe6af37478e0b77f4d6a1205
+    m_Address: Slot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: decca94fd25be1642877e6d073795791
+    m_Address: BulletGun
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 708d2a53b34373e468467510d5292bfb
+    m_Address: Bullet
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 0d2039554fde45844959c4f33366ed5b
+    m_Address: BattleWindow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 990437644a25280469ddf74ec83f1e1f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a69a8e322a21fa444afd4d4a2a6cf99c, type: 2}
+    - {fileID: 11400000, guid: 8a0bb1e9253d2f04caa890fe283b2f68, type: 2}
