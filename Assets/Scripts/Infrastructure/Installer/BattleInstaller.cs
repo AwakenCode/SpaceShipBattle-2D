@@ -10,7 +10,7 @@ namespace Infrastructure.Installer
     {
         [SerializeField] private ShipSpawnPoints _shipSpawnPoints;
         [SerializeField] private SceneContext _sceneContext;
-        
+
         public override void InstallBindings()
         {
             InitGameStateFactory();
@@ -27,7 +27,7 @@ namespace Infrastructure.Installer
         private void BindShipSpawner()
         {
             var shipSpawner = new ShipSpawner(Container.Resolve<BattleSetupHolder>(), _shipSpawnPoints);
-            
+
             _shipSpawnPoints.Initialize();
 
             Container

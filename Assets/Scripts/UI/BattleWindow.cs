@@ -1,6 +1,4 @@
-﻿using Service.Factory;
-using UnityEngine;
-using Zenject;
+﻿using UnityEngine;
 
 namespace UI
 {

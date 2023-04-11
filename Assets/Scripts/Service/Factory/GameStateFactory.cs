@@ -9,18 +9,16 @@ namespace Service.Factory
 {
     public class GameStateFactory
     {
-        private readonly IGameStateMachine _gameStateMachine;
         private readonly IDataProvider _dataProvider;
         private readonly IAssetProvider _assetProvider;
         private readonly SceneLoader _sceneLoader;
         private readonly Curtain _curtain;
         private readonly UIFactory _uiFactory;
-        
+
         private SceneContext _activeSceneContext;
 
-        public GameStateFactory(IGameStateMachine gameStateMachine, IDataProvider dataProvider, IAssetProvider assetProvider, SceneLoader sceneLoader, Curtain curtain, UIFactory uiFactory)
+        public GameStateFactory(IDataProvider dataProvider, IAssetProvider assetProvider, SceneLoader sceneLoader, Curtain curtain, UIFactory uiFactory)
         {
-            _gameStateMachine = gameStateMachine;
             _dataProvider = dataProvider;
             _assetProvider = assetProvider;
             _sceneLoader = sceneLoader;
@@ -31,15 +29,20 @@ namespace Service.Factory
         public void InitSceneContext(SceneContext sceneContext) => 
             _activeSceneContext = sceneContext;
 
-        public IState Create(GameStateType type)
+        public IState Create(Type type, GameStateMachine gameStateMachine)
         {
-            return type switch
-            {
-                GameStateType.Bootstrap => new BootstrapState(_gameStateMachine, _assetProvider, _dataProvider, _curtain, _sceneLoader, this),
-                GameStateType.ShipSetup => new ShipSetupState(_gameStateMachine, _uiFactory, _curtain, _sceneLoader, _assetProvider, _activeSceneContext.Container.Resolve<ShipFactory>(), this),
-                GameStateType.Battle => new BattleState(_curtain, _uiFactory, _activeSceneContext.Container.Resolve<ShipSpawner>()),
-                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-            };
+            IState state;
+            if (type == typeof(BootstrapState))
+                state = new BootstrapState(gameStateMachine, _assetProvider, _dataProvider, _curtain, _sceneLoader);
+            else if (type == typeof(ShipSetupState))
+                state = new ShipSetupState(gameStateMachine, _uiFactory, _curtain, _sceneLoader, _assetProvider,
+                    _activeSceneContext.Container.Resolve<ShipFactory>());
+            else if (type == typeof(BattleState))
+                state = new BattleState(_curtain, _uiFactory, _activeSceneContext.Container.Resolve<ShipSpawner>());
+            else
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            
+            return state;
         }
     }
 }

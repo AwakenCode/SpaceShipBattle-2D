@@ -1,7 +1,4 @@
-﻿using System;
-using UnityEngine;
-
-namespace Service.Input
+﻿namespace Service.Input
 {
     public class PlayerInputRouter : IInputService
     {

@@ -4,7 +4,6 @@ using Infrastructure.State.StateMachine;
 using Service;
 using Service.Asset;
 using Service.Data;
-using Service.Factory;
 
 namespace Infrastructure.State
 {
@@ -15,19 +14,17 @@ namespace Infrastructure.State
         private readonly IAssetProvider _assetProvider;
         private readonly Curtain _curtain;
         private readonly SceneLoader _sceneLoader;
-        private readonly GameStateFactory _gameStateFactory;
 
         public BootstrapState(IGameStateMachine gameStateMachine, IAssetProvider assetProvider, IDataProvider dataProvider,
-            Curtain curtain, SceneLoader sceneLoader, GameStateFactory gameStateFactory)
+            Curtain curtain, SceneLoader sceneLoader)
         {
             _assetProvider = assetProvider;
             _dataProvider = dataProvider;
             _curtain = curtain;
             _gameStateMachine = gameStateMachine;
             _sceneLoader = sceneLoader;
-            _gameStateFactory = gameStateFactory;
         }
-        
+
         public async void Enter()
         {
             await PrepareServices();
@@ -36,8 +33,6 @@ namespace Infrastructure.State
 
         private void OnLoaded()
         {
-            var state = _gameStateFactory.Create(GameStateType.ShipSetup);
-            _gameStateMachine.AddState<ShipSetupState>(state);
             _gameStateMachine.Enter<ShipSetupState>();
         }
 

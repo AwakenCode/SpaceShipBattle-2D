@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Infrastructure.State
+﻿namespace Infrastructure.State
 {
     public interface IState
     {

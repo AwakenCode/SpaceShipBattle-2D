@@ -1,5 +1,4 @@
 ﻿using Ship.Equipment.Weapon;
-using Ship.Weapon;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 

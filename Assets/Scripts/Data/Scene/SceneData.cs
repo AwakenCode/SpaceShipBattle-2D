@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 
 namespace Data.Scene
 {
-    [CreateAssetMenu(menuName = "Scene/Data", order = 61)]
+    [CreateAssetMenu(menuName = "SceneData/Data", order = 61)]
     public class SceneData : ScriptableObject
     {
         [SerializeField] private AssetReference[] _setupSceneAssets;

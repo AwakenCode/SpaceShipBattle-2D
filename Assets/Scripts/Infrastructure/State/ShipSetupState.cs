@@ -13,11 +13,10 @@ namespace Infrastructure.State
         private readonly SceneLoader _sceneLoader;
         private readonly IAssetProvider _assetProvider;
         private readonly ShipFactory _shipFactory;
-        private readonly GameStateFactory _gameStateFactory;
         private readonly Curtain _curtain; 
         
         public ShipSetupState(IGameStateMachine gameStateMachine, UIFactory uiFactory, Curtain curtain, SceneLoader sceneLoader,
-            IAssetProvider assetProvider, ShipFactory shipFactory, GameStateFactory gameStateFactory)
+            IAssetProvider assetProvider, ShipFactory shipFactory)
         {
             _gameStateMachine = gameStateMachine;
             _uiFactory = uiFactory;
@@ -25,7 +24,6 @@ namespace Infrastructure.State
             _sceneLoader = sceneLoader;
             _assetProvider = assetProvider;
             _shipFactory = shipFactory;
-            _gameStateFactory = gameStateFactory;
         }
 
         public void Enter()
@@ -51,8 +49,6 @@ namespace Infrastructure.State
 
         private void OnLoaded()
         {
-            var state = _gameStateFactory.Create(GameStateType.Battle);
-            _gameStateMachine.AddState<BattleState>(state);
             _gameStateMachine.Enter<BattleState>();
         }
     }

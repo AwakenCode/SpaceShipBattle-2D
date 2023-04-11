@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Service.Input
+﻿namespace Service.Input
 {
     public interface IInputService
     {
